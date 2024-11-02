@@ -33,7 +33,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.permit(:name, :car_type, :is_used, :release_year, :brand_id)
+    params.permit(:name, :car_type, :is_used, :release_year)
   end
 
   def set_brand
