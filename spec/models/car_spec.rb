@@ -1,0 +1,13 @@
+require 'rails_helper'
+
+RSpec.describe Car, type: :model do
+  # Association test
+  # ensure an item record belongs to a single todo record
+  it { should belong_to(:brand) }
+  # Validation test
+  # ensure column name is present before saving
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:release_year) }
+  it { should validate_presence_of(:type) }
+  it { should validate_presence_of(:is_used) }
+end
