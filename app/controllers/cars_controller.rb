@@ -4,12 +4,12 @@ class CarsController < ApplicationController
 
   # GET /brands/:brand_id/cars
   def index
-    json_response(@brand.cars)
+    json_response(@brand.cars.as_json(methods: :brand_name))
   end
 
   # GET /brands/:brand_id/cars/:id
   def show
-    json_response(@car)
+    json_response(@car.as_json.merge(brand_name: @car.brand.brand_name))
   end
 
   # POST /brands/:brand_id/cars
@@ -33,7 +33,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.permit(:name, :car_type, :is_used, :release_year)
+    params.permit(:name, :car_type, :release_year)
   end
 
   def set_brand

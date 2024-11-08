@@ -66,7 +66,7 @@ RSpec.describe 'Cars API' do
     let(:valid_attributes) { { name: 'CRV', car_type: 'SUV', is_used: false, release_year: 2022 } }
 
     context 'when request attributes are valid' do
-      before { post "/brands/#{brand_id}/cars", params: { car: valid_attributes } }
+      before { post "/brands/#{brand_id}/cars", params:  valid_attributes }
 
       it 'returns status code 201' do
         # puts response.body
@@ -75,7 +75,7 @@ RSpec.describe 'Cars API' do
     end
 
     context 'when an invalid request' do
-      before { post "/brands/#{brand_id}/cars", params: { car: {} } }
+      before { post "/brands/#{brand_id}/cars", params: {} }
 
       it 'returns status code 422' do
         # puts response.body
